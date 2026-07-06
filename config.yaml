@@ -1,0 +1,45 @@
+# Expression Detection - Configuration File
+
+# Data Settings
+data:
+  dataset_path: "data/"
+  image_size: [48, 48]  # Standard for FER
+  batch_size: 32
+  validation_split: 0.2
+  num_classes: 7  # angry, disgust, fear, happy, sad, surprise, neutral
+  
+# Model Settings
+model:
+  architecture: "CNN"
+  input_shape: [48, 48, 1]  # Grayscale images
+  learning_rate: 0.001
+  epochs: 50
+  early_stopping_patience: 10
+  
+# Face Detection Settings
+face_detection:
+  cascade_path: "haarcascade_frontalface_default.xml"
+  scale_factor: 1.1
+  min_neighbors: 5
+  min_size: [30, 30]
+  
+# Preprocessing Settings
+preprocessing:
+  use_gaussian_blur: true
+  gaussian_kernel: [5, 5]
+  use_edge_detection: false
+  normalization: "minmax"  # or "standard"
+  
+# Webcam Settings
+webcam:
+  camera_id: 0
+  width: 640
+  height: 480
+  fps: 30
+  
+# Output Settings
+output:
+  model_save_path: "models/expression_model.h5"
+  weights_save_path: "models/weights.h5"
+  results_path: "results/"
+  save_plots: true
